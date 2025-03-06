@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Display Text File</title>
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #f8f9fa;
+            color: black;
+            text-align: center;
+            padding: 20px;
+        }
+        h2 {
+            font-size: 24px;
+            font-weight: bold;
+            margin-bottom: 20px;
+        }
+        pre {
+            background: #f5f5dc;
+            color: #333333;
+            padding: 20px;
+            border: 1px solid #ccc;
+            width: 90%;
+            margin: auto;
+            text-align: left;
+            white-space: pre-wrap;
+            font-family: 'Poppins', sans-serif;
+            font-size: 25px;
+            line-height: 2;
+            border-radius: 10px;
+            box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
+        }
+    </style>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+    <h2>Text File Content:</h2>
+    <pre id="text-content">Caricamento...</pre>
+
+    <script>
+        fetch('testo.txt')
+            .then(response => response.text())
+            .then(text => document.getElementById('text-content').textContent = text)
+            .catch(error => console.error('Errore nel caricamento del file:', error));
+    </script>
+</body>
+</html>
